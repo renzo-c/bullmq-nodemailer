@@ -1,0 +1,28 @@
+{
+  "name": "bullmq-newsletter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsx ./src/index.ts",
+    "start:worker": "tsx ./src/worker.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/nodemailer": "^7.0.4",
+    "@types/pg": "^8.16.0",
+    "bullmq": "^5.66.4",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "nodemailer": "^7.0.12",
+    "pg": "^8.16.3",
+    "typeorm": "^0.3.28"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "tsx": "^4.21.0"
+  }
+}
