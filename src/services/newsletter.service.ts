@@ -1,8 +1,8 @@
 import { NodemailerInterface } from "../interfaces/nodemailer.interface";
 import { Queue } from "bullmq";
 import config from "../config";
-import transporter from "../nodemailer";
 import SubscribedUserCrud from "../models/subscribedUser.crud";
+import { BullMQOtel } from "bullmq-otel";
 
 const { bullmqConfig } = config;
 
@@ -11,7 +11,8 @@ class NewsletterService {
     private subscribedUserCRUD: typeof SubscribedUserCrud;;
     constructor() {
         this.queue = new Queue<NodemailerInterface>(config.bullmqConfig.queueName, { 
-            connection: bullmqConfig.connections
+            connection: bullmqConfig.connections,
+            telemetry: new BullMQOtel('newsletter-service', '1.0.0'),
         });
         this.subscribedUserCRUD = SubscribedUserCrud;
     }

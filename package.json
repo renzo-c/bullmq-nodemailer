@@ -5,16 +5,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx ./src/index.ts",
-    "start:worker": "tsx ./src/worker.ts"
+    "start": "tsx --import ./src/instrumentation/instrumentation.producer.ts ./src/index.ts",
+    "start:worker": "tsx --import ./src/instrumentation/instrumentation.consumer.ts ./src/worker.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@opentelemetry/instrumentation-express": "^0.57.1",
+    "@opentelemetry/instrumentation-http": "^0.208.0",
+    "@opentelemetry/instrumentation-ioredis": "^0.57.0",
+    "@opentelemetry/instrumentation-pg": "^0.61.2",
+    "@opentelemetry/sdk-metrics": "^2.2.0",
+    "@opentelemetry/sdk-node": "^0.208.0",
+    "@opentelemetry/sdk-trace-node": "^2.2.0",
     "@types/nodemailer": "^7.0.4",
     "@types/pg": "^8.16.0",
     "bullmq": "^5.66.4",
+    "bullmq-otel": "^1.1.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "nodemailer": "^7.0.12",
